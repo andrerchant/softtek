@@ -1,0 +1,5 @@
+@mixin flex($orientation){
+    display: flex;
+    flex-flow: $orientation;
+    @extend %centered-flex;
+}

@@ -1,0 +1,11 @@
+ @import "_details";
+ @import "_list";
+
+ header{
+    @include flex(row);
+    img{
+        width: 50vw;
+        max-width: 250px;
+        min-width: 80px;
+    }
+ }
