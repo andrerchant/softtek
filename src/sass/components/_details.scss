@@ -1,0 +1,69 @@
+main.details{
+    @include flex(column);
+    @extend %modal-float;
+    background: linear-gradient(to top,dimgray, #c3c3c3);
+    box-shadow: 0px 13px 10px -10px black;
+    color: white;
+    height: 75vh;
+    max-height: 482px;
+    max-width: 500px;
+    min-width: 300px;
+    width: 100%;
+
+    .header,.data,.places{
+        @include flex(flow);
+    }
+
+    .header{
+        justify-content: flex-start;
+        width: 100%;
+    
+        img{
+            border-radius: .5rem;
+            box-shadow: 0px 20px 10px -20px black;
+            height: 11rem;
+            margin: 1rem;
+            max-width: 200px;
+            min-width: 4rem;
+            position: relative;
+            bottom: 2rem;
+            object-fit: cover;
+            width: 50vw;
+            
+        }
+    }
+
+    .data{
+        small{
+            align-items: center;
+            display: flex;
+            padding: 0 .4rem;
+
+            &>a{
+                color: rgb(220, 245, 255);
+                text-decoration: none;
+                &:hover{ color:white}
+            }
+        }
+    }
+
+    .directions{
+        padding: 0 1rem;
+        
+        .places{
+            &>*{
+                margin: 1rem;
+            }
+            .register-map{
+                border-radius: .2rem;
+                height: 11rem;
+                width: 16rem;
+            }
+        }
+    }
+    
+    .close_btn{
+        position: relative;
+        top: 1.5rem;
+    }
+}

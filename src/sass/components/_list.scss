@@ -1,0 +1,41 @@
+main.lista{
+    @include flex(coumn);
+    transition: filter ease .3s;
+    will-change: filter;
+
+    &.detailson{
+        filter: blur(2px);
+        opacity: .7;
+    }
+    
+    table.mat-table{
+        box-shadow: none;
+        max-width: 800px;
+        min-width: 245px;
+        width: 100%;
+
+        tr:hover{
+            background: rgb(226, 248, 226);
+            cursor: pointer;
+        }
+        .mat-header-row:hover{
+                background: none;
+        }
+
+        td,th > div{
+            text-align: center;
+            justify-content: center;
+        }
+        td:nth-child(1){
+            width: 3rem;
+        }
+
+        img{
+            border-radius: 100%;
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+        }
+
+    }
+}

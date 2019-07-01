@@ -6,9 +6,10 @@ import { MatTableModule } from '@angular/material/table';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
-  declarations: [ListComponent, DetailsComponent],
+  declarations: [ListComponent, DetailsComponent, FormComponent],
   imports: [
     CommonModule,
     MatSortModule,

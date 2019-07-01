@@ -1,3 +1,22 @@
-<p>
-  details works!
-</p>
+<main class="details">
+  <div class="header">
+    <img [attr.src]="'./'+users_data.picture+'.png'" [attr.alt]="users_data.first_name">
+    <h2>{{users_data.last_name}}, {{users_data.first_name}}</h2>
+  </div>
+  <div class="data">
+    <small> <i class="material-icons">phone</i> <a [attr.href]="'tel:'+users_data.phone"> {{users_data.phone}}</a> </small>
+    <small> <i class="material-icons">alternate_email</i> <a [attr.href]="'mailto:'+users_data.email"> {{users_data.email}} </a> </small>
+  </div>
+  <div class="directions">
+    <div> <h3> <i class="material-icons">domain</i> Dirección:</h3></div>
+    <div class="places">
+      <p>
+        {{users_data?.address || "No address founded" }}
+      </p>
+      <div #map class="register-map"></div>
+    </div>
+  </div>
+  <button class="close_btn" (click)="send_close()">
+    Close
+  </button>
+</main>

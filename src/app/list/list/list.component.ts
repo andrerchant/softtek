@@ -9,8 +9,10 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ListComponent implements OnInit {
 
-  usuarios:Array<any>;
-  dataSource: MatTableDataSource<any>;
+  usuarios:Array<users>;
+  dataSource: MatTableDataSource<users>;
+  detailson:boolean = false;
+  selectedUser:users;
 
   constructor(
     _contacts:ContactsService
@@ -18,9 +20,16 @@ export class ListComponent implements OnInit {
     this.usuarios = _contacts.users;
   }
   
-  displayedColumns: string[] = ['id', 'first_name', 'last_name'];
+  displayedColumns: string[] = ['id', 'picture', 'first_name', 'last_name'];
   
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  toogleDetails(eto:users){
+    this.detailson = !this.detailson;
+    if(!eto) return;
+    this.selectedUser = eto;
+    console.log("Elegiste a:",eto);
+  }
   
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.usuarios);
