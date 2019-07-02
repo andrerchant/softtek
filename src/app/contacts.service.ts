@@ -44,7 +44,7 @@ export class ContactsService {
 
   loadUsers(){
     let LS = localStorage.getItem('peopleData');
-    console.log('data', JSON.parse(LS));
+    if(LS!==null) this.users = JSON.parse(LS);
   }
 
 }

@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   constructor(
     private _contacts:ContactsService
   ) { 
+    this._contacts.loadUsers();
     this.usuarios = _contacts.users;
   }
   
@@ -28,13 +29,11 @@ export class ListComponent implements OnInit {
     this.detailson = !this.detailson;
     if(!contact) return;
     this.selectedUser = contact;
-    console.log("Elegiste a:",contact);
   }
   
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.usuarios);
     this.dataSource.sort = this.sort;
-    this._contacts.loadUsers();
   }
 
 }
