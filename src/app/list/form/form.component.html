@@ -1,3 +1,36 @@
-<p>
-  form works!
-</p>
+<main class="form">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  
+    <label for="name1">
+      First Name:
+      <input id="name1" type="text" formControlName="firstName" required placeholder="your name">
+    </label>
+  
+    <label for="name2">
+      Last Name:
+      <input id="name2" type="text" formControlName="lastName" required placeholder="family name">
+    </label>
+  
+    <label for="phone">
+      Phone:
+      <input id="phone" type="number" formControlName="phone" required placeholder="example: 55334422">
+    </label>
+  
+    <label for="email">
+      Email:
+      <input id="email" type="text" formControlName="email" required placeholder="yourname@domain.com">
+    </label>
+  
+    <label for="addres">
+      Address:
+      <input id="addres" type="text" formControlName="address" placeholder="street, number, city">
+    </label>
+  
+    <div class="actions">
+      <button type="submit" [disabled]="contactForm.status=='INVALID'">Add new user</button>
+      <button [routerLink]="['']">Back</button>
+      <button (click)="onSubmit()">PRUEBA</button>
+    </div>
+  
+  </form>
+</main>

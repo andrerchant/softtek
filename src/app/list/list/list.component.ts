@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   selectedUser:users;
 
   constructor(
-    _contacts:ContactsService
+    private _contacts:ContactsService
   ) { 
     this.usuarios = _contacts.users;
   }
@@ -24,16 +24,17 @@ export class ListComponent implements OnInit {
   
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  toogleDetails(eto:users){
+  toogleDetails(contact:users){
     this.detailson = !this.detailson;
-    if(!eto) return;
-    this.selectedUser = eto;
-    console.log("Elegiste a:",eto);
+    if(!contact) return;
+    this.selectedUser = contact;
+    console.log("Elegiste a:",contact);
   }
   
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.usuarios);
     this.dataSource.sort = this.sort;
+    this._contacts.loadUsers();
   }
 
 }

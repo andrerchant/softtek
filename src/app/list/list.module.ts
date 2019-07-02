@@ -7,6 +7,7 @@ import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListComponent, DetailsComponent, FormComponent],
@@ -14,7 +15,8 @@ import { FormComponent } from './form/form.component';
     CommonModule,
     MatSortModule,
     MatTableModule,
-    ListRoutingModule
+    ListRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ListModule { }

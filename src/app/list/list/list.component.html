@@ -27,5 +27,7 @@
   
   </table>
 
+  <button class="add-button" [routerLink]="['new']"> <i class="material-icons">person_add</i> </button>
+
 </main>
 <app-details *ngIf="detailson" [udata]="selectedUser" (changeWindow)="toogleDetails()"></app-details>

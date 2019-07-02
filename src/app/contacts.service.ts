@@ -4,7 +4,7 @@ export interface users{
   id:number,
   first_name:string,
   last_name:string,
-  picture: string|any,
+  picture?: string|any,
   address?:string,
   map?:Array<number>,
   phone?:number,
@@ -15,6 +15,7 @@ export interface users{
   providedIn: 'root'
 })
 export class ContactsService {
+  coords:any;
 
   constructor() { }
 
@@ -25,6 +26,25 @@ export class ContactsService {
     { id:4, phone:4489567512, email: "mousetail@gmail.com", first_name: "Peter", last_name:"Petegrew", picture:"assets/users/peter", address:"58 Victoria St, Westminster, London SW1E 6QW, Reino Unido",map:[51.4963852,-0.1354508]},
     { id:5, phone:6859203458, email: "yabadabadu@yahoo.com.mx", first_name: "Fred", last_name:"Flinstone", picture:"assets/users/fred", address:"Church St, Amesbury, Salisbury SP4 7EU, Reino Unido",map:[51.1774351,-1.7869499]},
     { id:6, phone:8046513219, email: "powerpuffgirl1@gmail.com", first_name: "Rhianna", last_name:"Pérez", picture:"assets/users/rhianna", address:"95 S Pine Ave, Long Beach, CA 90802, EE. UU.",map:[33.778676,-118.2121173]},
-  ]
+  ];
+
+  getLocation(){
+    if('geolocation' in navigator){
+      navigator.geolocation.getCurrentPosition((location:any)=> {
+        this.coords = [location.coords.latitude,location.coords.longitude];
+      });
+    }else this.coords = [20.6538958,-103.3940686];
+  }
+
+  addUser(data:users){
+    this.users.push(data);
+    let formatData:string = JSON.stringify(this.users);
+    localStorage.setItem("peopleData",formatData);
+  }
+
+  loadUsers(){
+    let LS = localStorage.getItem('peopleData');
+    console.log('data', JSON.parse(LS));
+  }
 
 }

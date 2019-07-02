@@ -1,0 +1,56 @@
+main.form{
+    form{
+        @include flex(column);
+        align-items: flex-start;
+        margin: auto;
+        padding-top: 3rem;
+        width: 354px;
+
+        label,input{
+            display: flex;
+        }
+
+        label{
+            align-items: center;
+            margin: .4rem .15rem;
+
+            input{
+                @extend %button;
+                border-radius: 0 0 0px 7px;
+                border: 1px solid var(--green);
+                border-top: 0;
+                border-right: 0;
+                margin: .3rem;
+            }
+        }
+
+        .actions{
+            @include flex(flow);
+            padding-top: 3rem;
+            width: 100%;
+
+            button{
+                @extend %button;
+                background: var(--darkblue);
+                color: white;
+                margin: .4rem;
+                width: 100%;
+
+                &:hover{
+                    background: var(--darkbluehover);
+                }
+
+                &[type="submit"]{
+                    background: var(--green);
+                    &:hover{
+                        background: var(--greenhover);
+                    }
+                    &:disabled{
+                        background: gray;
+                        color: silver;
+                    }
+                }
+            }
+        }
+    }
+}
