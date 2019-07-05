@@ -30,6 +30,11 @@ main.details{
             object-fit: cover;
             width: 50vw;
             
+            @media screen and (max-width:400px) {
+                bottom: 1rem;
+                height: 5rem;
+                width: 5rem;
+            }
         }
     }
 
@@ -49,6 +54,12 @@ main.details{
 
     .directions{
         padding: 0 1rem;
+
+        h3{
+            @media screen and (max-width:400px) {
+                margin: .3rem 1rem;
+            }
+        }
         
         .places{
             &>*{
@@ -59,11 +70,25 @@ main.details{
                 height: 11rem;
                 width: 16rem;
             }
+
+            @media screen and (max-width:400px) {
+                @include flex(column);   
+                &>*{
+                    margin: .3rem;
+                }
+                .register-map{
+                    width: 60%;
+                    height: 8rem;
+                }
+            }
         }
     }
     
     .close_btn{
         position: relative;
         top: 1.5rem;
+        @media screen and (max-width:400px) {
+            top: .2rem;
+        }
     }
 }

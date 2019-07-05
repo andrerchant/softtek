@@ -9,12 +9,12 @@ main{
     @extend %button;
     background: var(--green);
     border-radius: 100%;
-    top:45vh;
+    top:.5rem;
     color: white;
     height: 4rem;
     padding: 1.2rem;
     position: fixed;
-    right: 3rem;
+    right: .5rem;
     width: 4rem;
 
     &:hover{
